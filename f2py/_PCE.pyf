@@ -1,0 +1,51 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module _PCE ! in 
+    interface  ! in :_PCE
+        module hermite ! in :_PCE:src/PCE/hermPol.f90
+            function factorial(n) result (res) ! in :_PCE:src/PCE/hermPol.f90:hermite
+                integer intent(in) :: n
+                integer :: res
+            end function factorial
+            subroutine h_k(k,x,dimx,hermite) ! in :_PCE:src/PCE/hermPol.f90:hermite
+                integer intent(in) :: k
+                double precision dimension(dimx),intent(in) :: x
+                integer, optional,intent(in),check(len(x)>=dimx),depend(x) :: dimx=len(x)
+                double precision dimension(dimx),intent(inout),depend(dimx) :: hermite
+            end subroutine h_k
+            subroutine h_k_norm(k,x,dimx,hermitenorm) ! in :_PCE:src/PCE/hermPol.f90:hermite
+                integer intent(in) :: k
+                double precision dimension(dimx),intent(in) :: x
+                integer, optional,intent(in),check(len(x)>=dimx),depend(x) :: dimx=len(x)
+                double precision dimension(dimx),intent(out),depend(dimx) :: hermitenorm
+            end subroutine h_k_norm
+            subroutine hermpol2(p,x,dimx,hermitepols) ! in :_PCE:src/PCE/hermPol.f90:hermite
+                integer intent(in) :: p
+                double precision dimension(dimx),intent(in) :: x
+                integer, optional,intent(in),check(len(x)>=dimx),depend(x) :: dimx=len(x)
+                double precision dimension(p,dimx),intent(out),depend(p,dimx) :: hermitepols
+            end subroutine hermpol2
+            subroutine hermpol(p,x,dimx,hermitepols) ! in :_PCE:src/PCE/hermPol.f90:hermite
+                integer intent(in) :: p
+                double precision dimension(dimx),intent(in) :: x
+                integer, optional,intent(in),check(len(x)>=dimx),depend(x) :: dimx=len(x)
+                double precision dimension(p,dimx),intent(out),depend(p,dimx) :: hermitepols
+            end subroutine hermpol
+        end module hermite
+        module m_pce ! in :_PCE:src/PCE/pce.f90
+            use hermite
+            subroutine pce(p,d,nump,seq,u,psi) ! in :_PCE:src/PCE/pce.f90:m_pce
+                integer intent(in) :: p
+                integer, optional,intent(in),check(shape(seq,1)==d),depend(seq) :: d=shape(seq,1)
+                integer, optional,intent(in),check(shape(seq,0)==nump),depend(seq) :: nump=shape(seq,0)
+                integer dimension(nump,d),intent(in) :: seq
+                double precision dimension(d),intent(in),depend(d) :: u
+                double precision dimension(nump),intent(out),depend(nump) :: psi
+            end subroutine pce
+        end module m_pce
+    end interface 
+end python module _PCE
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

@@ -1,0 +1,168 @@
+Reading fortran codes...
+	Reading file 'src/PCE/pce.f90' (format:free)
+	Reading file 'src/PCE/test_hermPol.f90' (format:free)
+	Reading file 'src/PCE/hermPol.f90' (format:free)
+Post-processing...
+	Block: _PCE
+			Block: pce
+In: :_PCE:src/PCE/pce.f90:pce
+get_useparameters: no module hermite info used by pce
+				Block: pce
+In: :_PCE:src/PCE/pce.f90:pce:pce
+get_useparameters: no module hermite info used by pce
+In: :_PCE:src/PCE/pce.f90:pce:pce
+	getarrlen:variable "p" undefined
+In: :_PCE:src/PCE/pce.f90:pce:pce
+	getarrlen:variable "dimx" undefined
+			Block: test_hempol
+In: :_PCE:src/PCE/test_hermPol.f90:test_hempol
+get_useparameters: no module hermite info used by test_hempol
+			Block: hermite
+				Block: factorial
+In: :_PCE:src/PCE/hermPol.f90:hermite:factorial
+analyzevars: prefix ('recursive') were not used
+				Block: h_k
+				Block: h_k_norm
+				Block: hermpol2
+				Block: hermpol
+Post-processing (stage 2)...
+	Block: _PCE
+		Block: unknown_interface
+			Block: pce
+				Block: pce
+			Block: test_hempol
+			Block: hermite
+				Block: factorial
+				Block: h_k
+				Block: h_k_norm
+				Block: hermpol2
+				Block: hermpol
+Saving signatures to file "./_PCE.pyf"
+running build
+running config_cc
+unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+build_src
+building extension "_PCE" sources
+creating /tmp/tmpKqDFJC/src.linux-x86_64-2.7
+f2py options: []
+f2py: _PCE.pyf
+Reading fortran codes...
+	Reading file '_PCE.pyf' (format:free)
+Post-processing...
+	Block: _PCE
+			Block: pce
+In: _PCE.pyf:_PCE:unknown_interface:pce
+get_useparameters: no module hermite info used by pce
+				Block: pce
+In: _PCE.pyf:_PCE:unknown_interface:pce:pce
+get_useparameters: no module hermite info used by pce
+			Block: hermite
+				Block: factorial
+				Block: h_k
+				Block: h_k_norm
+				Block: hermpol2
+				Block: hermpol
+Post-processing (stage 2)...
+	Block: _PCE
+		Block: unknown_interface
+			Block: pce
+				Block: pce
+			Block: hermite
+				Block: factorial
+				Block: h_k
+				Block: h_k_norm
+				Block: hermpol2
+				Block: hermpol
+Building modules...
+	Building module "_PCE"...
+		Constructing F90 module support for "pce"...
+			Constructing wrapper function "pce.pce"...
+			  psi = pce(seq,u,[nump,d])
+		Constructing F90 module support for "hermite"...
+		Creating wrapper for Fortran function "factorial"("factorial")...
+			Constructing wrapper function "hermite.factorial"...
+			  res = factorial(n)
+			Constructing wrapper function "hermite.h_k"...
+			  h_k(k,x,hermite,[dimx])
+			Constructing wrapper function "hermite.h_k_norm"...
+			  hermitenorm = h_k_norm(k,x,[dimx])
+			Constructing wrapper function "hermite.hermpol2"...
+			  hermitepols = hermpol2(p,x,[dimx])
+			Constructing wrapper function "hermite.hermpol"...
+			  hermitepols = hermpol(p,x,[dimx])
+	Wrote C/API module "_PCE" to file "/tmp/tmpKqDFJC/src.linux-x86_64-2.7/_PCEmodule.c"
+	Fortran 90 wrappers are saved to "/tmp/tmpKqDFJC/src.linux-x86_64-2.7/_PCE-f2pywrappers2.f90"
+  adding '/tmp/tmpKqDFJC/src.linux-x86_64-2.7/fortranobject.c' to sources.
+  adding '/tmp/tmpKqDFJC/src.linux-x86_64-2.7' to include_dirs.
+copying /usr/lib64/python2.7/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmpKqDFJC/src.linux-x86_64-2.7
+copying /usr/lib64/python2.7/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmpKqDFJC/src.linux-x86_64-2.7
+  adding '/tmp/tmpKqDFJC/src.linux-x86_64-2.7/_PCE-f2pywrappers2.f90' to sources.
+build_src: building npy-pkg config files
+running build_ext
+customize UnixCCompiler
+customize UnixCCompiler using build_ext
+customize Gnu95FCompiler
+Found executable /usr/bin/gfortran
+customize Gnu95FCompiler using build_ext
+building '_PCE' extension
+compiling C sources
+C compiler: gcc -pthread -fno-strict-aliasing -fmessage-length=0 -grecord-gcc-switches -O2 -Wall -D_FORTIFY_SOURCE=2 -fstack-protector -funwind-tables -fasynchronous-unwind-tables -g -DNDEBUG -fmessage-length=0 -grecord-gcc-switches -O2 -Wall -D_FORTIFY_SOURCE=2 -fstack-protector -funwind-tables -fasynchronous-unwind-tables -g -DOPENSSL_LOAD_CONF -fPIC
+
+creating /tmp/tmpKqDFJC/tmp
+creating /tmp/tmpKqDFJC/tmp/tmpKqDFJC
+creating /tmp/tmpKqDFJC/tmp/tmpKqDFJC/src.linux-x86_64-2.7
+compile options: '-Isrc/PCE -Isrc/PCE/include -Isrc/PCE/src -Isrc/PCE/src/include -I/tmp/tmpKqDFJC/src.linux-x86_64-2.7 -I/usr/lib64/python2.7/site-packages/numpy/core/include -I/usr/include/python2.7 -c'
+gcc: /tmp/tmpKqDFJC/src.linux-x86_64-2.7/_PCEmodule.c
+In file included from /usr/lib64/python2.7/site-packages/numpy/core/include/numpy/ndarraytypes.h:1777:0,
+                 from /usr/lib64/python2.7/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                 from /usr/lib64/python2.7/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from /tmp/tmpKqDFJC/src.linux-x86_64-2.7/fortranobject.h:13,
+                 from /tmp/tmpKqDFJC/src.linux-x86_64-2.7/_PCEmodule.c:19:
+/usr/lib64/python2.7/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+ #warning "Using deprecated NumPy API, disable it by " \
+  ^
+/tmp/tmpKqDFJC/src.linux-x86_64-2.7/_PCEmodule.c:112:12: warning: ‘f2py_size’ defined but not used [-Wunused-function]
+ static int f2py_size(PyArrayObject* var, ...)
+            ^
+gcc: /tmp/tmpKqDFJC/src.linux-x86_64-2.7/fortranobject.c
+In file included from /usr/lib64/python2.7/site-packages/numpy/core/include/numpy/ndarraytypes.h:1777:0,
+                 from /usr/lib64/python2.7/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                 from /usr/lib64/python2.7/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from /tmp/tmpKqDFJC/src.linux-x86_64-2.7/fortranobject.h:13,
+                 from /tmp/tmpKqDFJC/src.linux-x86_64-2.7/fortranobject.c:2:
+/usr/lib64/python2.7/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+ #warning "Using deprecated NumPy API, disable it by " \
+  ^
+compiling Fortran 90 module sources
+Fortran f77 compiler: /usr/bin/gfortran -O3 -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -O3 -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -O3 -fPIC -O3 -funroll-loops
+creating /tmp/tmpKqDFJC/src
+creating /tmp/tmpKqDFJC/src/PCE
+compile options: '-Isrc/PCE -Isrc/PCE/include -Isrc/PCE/src -Isrc/PCE/src/include -I/tmp/tmpKqDFJC/src.linux-x86_64-2.7 -I/usr/lib64/python2.7/site-packages/numpy/core/include -I/usr/include/python2.7 -c'
+extra options: '-J/tmp/tmpKqDFJC/ -I/tmp/tmpKqDFJC/'
+gfortran:f90: src/PCE/pce.f90
+Warning: Nonexistent include directory "src/PCE/src"
+Warning: Nonexistent include directory "src/PCE/src/include"
+src/PCE/pce.f90:5.6:
+
+  USE hermite
+      1
+Fatal Error: Can't open module file 'hermite.mod' for reading at (1): No such file or directory
+Warning: Nonexistent include directory "src/PCE/src"
+Warning: Nonexistent include directory "src/PCE/src/include"
+src/PCE/pce.f90:5.6:
+
+  USE hermite
+      1
+Fatal Error: Can't open module file 'hermite.mod' for reading at (1): No such file or directory
+Using gnu95 compiler
+
+ Building _PCE.so ... 
+
+/usr/bin/f2py --overwrite-signature src/PCE/pce.f90 src/PCE/test_hermPol.f90 src/PCE/hermPol.f90  -m _PCE -h _PCE.pyf
+/usr/bin/f2py -c  --fcompiler=gnu95 -Isrc/PCE -Isrc/PCE/include -Isrc/PCE/src -Isrc/PCE/src/include --f77flags=" -O3" --f90flags=" -O3" _PCE.pyf src/PCE/pce.f90 src/PCE/test_hermPol.f90 src/PCE/hermPol.f90
++++ Compilation failed
