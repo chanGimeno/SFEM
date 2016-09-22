@@ -1,5 +1,4 @@
-# ASFEM
-Advanced Stochastic Finite Element Methods
+# Advanced Stochastic Finite Element Methods
 
 http://www.igsse.tum.de/news/news-detail/article/block-course-advanced-stochastic-finite-element-methods/calendar/2016/6.html
 
